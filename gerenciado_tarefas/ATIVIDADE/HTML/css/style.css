@@ -1,0 +1,256 @@
+.inter-uniquifier {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight(400 700);
+  font-style: normal;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-weight: weight(400 700);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #dee8ec;
+  min-height: 100vh;  /*serve para garantir que um elemento tenha no mínimo a altura total da tela do dispositivo.*/
+}
+  
+header {
+  background-color: #48afdf;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin: 15px;
+  font-size: 18px;
+}
+
+a:hover {
+  color: #233D61;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 20vh;
+}
+
+.button-1,
+.button-2 {
+  background-color: #000000;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px ;
+}
+
+.button-1:hover,
+.button-2:hover {
+  background-color: #fbfbfb;
+  color: #233D61;
+}
+ /* fim do header */
+
+footer {
+  background-color: #48afdf;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  top: 100%;
+}
+
+
+.kanban {
+  display: flex;
+  gap: 14px;
+  padding: 24px;
+  width: 100%;
+  height: 90vh;
+ overflow-x: auto; /* faz aparecer uma barra de rolagem horizontal apenas quando for necessário. */
+ justify-content: center;
+  /* permite que os itens dentro de um container flex sejam quebrados em várias linhas, se necessário. */
+}
+.kanban-column {
+ display: flex;
+ flex-direction: column; /* faz os itens dentro de um container flex ficarem organizados em coluna (de cima para baixo). */
+ gap: 18px;
+  width: 380px;
+ height: 100%;
+  min-height: 380px;
+  max-height: 100%vh;
+ overflow-y: auto; /* faz aparecer uma barra de rolagem vertical apenas quando for necessário. */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  overflow: hidden; /* oculta qualquer conteúdo que ultrapasse os limites do elemento. */
+  position: relative;
+  min-width: 252px; /* define uma largura mínima de 252 pixels para o elemento. */
+ width: fit-content;
+}
+
+/* é um pseudo-elemento do CSS usado para inserir conteúdo depois de um elemento, sem precisar colocar nada no HTML. */
+.kanban-column::after{
+position: absolute;
+content: ''; /* define o conteúdo de um pseudo-elemento (::before ou ::after) como vazio. */
+height: 5px;
+width: 100%;
+top: 0;
+left: 0;
+
+}
+.kanban-column[data-id="1"]::after{
+  background-color: #4da3ff;
+}
+.kanban-column[data-id="2"]::after{
+  background-color: #ffcf4d;
+}
+.kanban-column[data-id="3"]::after{
+  background-color: #4ddb7c;
+}
+
+.kanban-title {
+  display: flex;
+  justify-content: space-between;
+}
+.kanban-title h2 {
+  font-size: 18px;
+  color: #1e293b;
+  font-size: 20px;
+}
+.add-card{
+  color: #4b5563;
+  font-size:  20px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+.kanban-cards{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+ overflow-x: hidden;
+}
+
+.kanban-card{
+ display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #ffffff;
+  border-radius:  14px;
+  padding:  10px;
+  box-shadow: 0px 5px 5px -3px  rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.badge{
+  color: #ffffff;
+  background-color: #4da3ff;
+  width: fit-content; /*faz o elemento ajustar sua largura exatamente ao tamanho do conteúdo interno.*/
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+.badge.high{
+  background-color: #ff4d4d;
+}
+.badge.medium{
+  background-color: #ffcf4d;
+}
+.badgelow{
+  background-color: #4ddb7c;
+}
+
+.card-infos{
+ display: flex; 
+ justify-content: space-between;
+  align-items: center;
+}
+
+.card-icons{
+  display: flex;
+  gap: 18px;
+}
+
+.card-icons i{
+  color: #a8a8aa;
+}
+
+.cards-hover{
+  background-color: #d1d4d8;
+  border-radius: 8px;
+}
+
+.user img{
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  object-fit: cover; /* garante que a imagem preencha completamente o contêiner, cortando partes se necessário, sem distorcer a imagem. */
+}
+
+.dragging{
+  opacity: 0.5;
+}
+
+*::-webkit-scrollbar{
+  width: 8px; /* define a largura da barra de rolagem vertical. */
+  height: 8px; /* define a altura da barra de rolagem horizontal. */
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* É a parte de fundo da barra de rolagem — onde o “thumb” (o quadradinho que arrasta) desliza. */
+*::-webkit-scrollbar-track{
+  background: #eaeffa;
+  border-radius: 8px;
+}
+
+/* É o “thumb” da barra de rolagem — o quadradinho que arrasta para rolar a página. */
+*::-webkit-scrollbar-thumb{
+  width: 8px;
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+
+@media screen and (max-width: 908px){
+  .kanban{
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  
+} 
+  .kanban-column{
+    min-width: 88%;
+    
+  }
+
+   header {
+    height: auto;
+    padding: 10px;
+    gap: 8px;
+  }
+  #btn{
+    display: none; ;
+  }
+
+  a {
+    margin: 5px;
+  }
+}
+
