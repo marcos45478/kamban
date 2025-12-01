@@ -54,7 +54,7 @@ const dados = JSON.parse(localStorage.getItem('kanbanData'));
 
 ▶ Como Executar
 1️⃣ Baixe ou clone:
-git clone https://github.com/seuusuario/projectboard.git
+git clone https://github.com/marcos45478/kamban
 
 2️⃣ Abra o arquivo:
 index.html
